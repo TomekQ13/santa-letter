@@ -1,7 +1,6 @@
 version: "3.8"
 services:
     postgres:
-        name: "database-dev"
         image: "postgres:14"
         restart: always
         env_file:
@@ -9,3 +8,5 @@ services:
         volumes:
             - ./database:/var/lib/postgresql/data
             - ./ddl:/ddl
+        ports:
+            - "5432:5432"
