@@ -10,3 +10,12 @@ services:
             - ./ddl:/ddl
         ports:
             - "5432:5432"
+    nginx:
+        image: nginx:latest
+        container_name: nginx
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - ./public:/usr/share/nginx/html
+        restart: always
