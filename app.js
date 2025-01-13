@@ -21,6 +21,7 @@ app.get('/', (req, res) => {
     res.send('Hello world!')
 })
 
+
 app.listen(port,()=>{
     console.log(`Example app listening on port ${port}`)
 })
@@ -28,8 +29,8 @@ const result = await pool.query('select * from tablica1');
 console.log(result.rows);
 
 
-app.set('view engine', 'pug');
+app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-    res.render('index', { title: 'Hey', message: 'Hello there!' })
+    return res.render('index')
   });
