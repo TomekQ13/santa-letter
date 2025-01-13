@@ -27,3 +27,9 @@ app.listen(port,()=>{
 const result = await pool.query('select * from tablica1');
 console.log(result.rows);
 
+
+app.set('view engine', 'pug');
+
+app.get('/', (req, res) => {
+    res.render('index', { title: 'Hey', message: 'Hello there!' })
+  });
