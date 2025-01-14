@@ -6,6 +6,7 @@ const app = express();
 const port = 3000;
 const { Pool } = pg;
 
+
 const pool = new Pool({
     user: process.env.POSTGRES_USER,
     host: 'localhost',
@@ -17,9 +18,7 @@ const pool = new Pool({
 
 await pool.connect();
 
-app.get('/', (req, res) => {
-    res.send('Hello world!')
-})
+app.set('view engine', 'ejs');
 
 
 app.listen(port,()=>{
@@ -28,9 +27,7 @@ app.listen(port,()=>{
 const result = await pool.query('select * from tablica1');
 console.log(result.rows);
 
-
-app.set('view engine', 'ejs');
-
 app.get('/', (req, res) => {
     return res.render('index')
   });
+
