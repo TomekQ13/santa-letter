@@ -12,12 +12,44 @@
                 
                 <nav>
                     <ul>
-                        <li><a href="#">Mój prezent</a></li>
-                        <li><a href="#">znajomi</a></li>
+                        <li><p><a href="present.ejs">Mój prezent</a></li></p>
+                        <li><p><a href="friends.html">znajomi</a></p></li>
                     </ul>
 
                 </nav>
             </header>
+        </div>
+        <div class="wrapper">
+            <h1>mój prezent</h1>
+            <form action="">
+                <label for="link">Link</label><br>
+                <input type="text" id="link"name="Link"><br>
+                <label for="opis">Opis</label><br>
+                <input type="text" id="opis"name="opis"><br>
+                <input type="submit" value="dodaj">
+                
+            </form>
+            <div>
+                <h1>mojde prezenty</h1>
+                <ol class = "moje-prezenty">
+                    <% tablica1.forEach(element => { %>
+                        <li class = "tabela1-row">
+                            <% element.text %>
+                            <form action="">
+                                <button type="submit">&times;</button>
+                            </form>
+         
+                            
+
+                        </li>
+                        
+                   <% }); %>
+
+                </ol>
+            </div>
+        </div>
+        <div class="wrapper">
+            <h1>znajomi</h1>
         </div>
         <script>
         

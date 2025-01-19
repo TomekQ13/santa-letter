@@ -3,7 +3,8 @@ import 'dotenv/config';
 import pg from 'pg';
 import express from "express";
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
+app.set('view engine', 'ejs');
 const { Pool } = pg;
 
 
@@ -18,16 +19,19 @@ const pool = new Pool({
 
 await pool.connect();
 
-app.set('view engine', 'ejs');
-
-
-app.listen(port,()=>{
-    console.log(`Example app listening on port ${port}`)
-})
 const result = await pool.query('select * from tablica1');
 console.log(result.rows);
 
 app.get('/', (req, res) => {
     return res.render('index')
   });
+
+  app.put('/',async (req,res)=>{
+    let response
+
+  });
+
+  app.listen(port,()=>{
+    console.log(`Example app listening on port ${port}`)
+})
 
